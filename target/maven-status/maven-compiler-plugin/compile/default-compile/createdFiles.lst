@@ -1,8 +1,0 @@
-interfaces/impl/CalculadoraBonusOtimo.class
-interfaces/impl/CalculadoraBonusExcelente.class
-interfaces/ICalculadoraBonus.class
-interfaces/impl/CalculadoraBonusBom.class
-interfaces/impl/CalculadoraBonusRuim.class
-model/Funcionario.class
-model/Bonus.class
-interfaces/impl/CalculadoraDistanciaDoTrabalho.class

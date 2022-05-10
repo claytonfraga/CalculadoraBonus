@@ -3,5 +3,5 @@ projectKey=org.example:ProjetoInicialProjetos
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.28905
 dashboardUrl=https://sonarcloud.io/dashboard?id=org.example%3AProjetoInicialProjetos
-ceTaskId=AYCvd-bZWXCYUwR2EnGg
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYCvd-bZWXCYUwR2EnGg
+ceTaskId=AYCvf2UXNQINETUuQAtA
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYCvf2UXNQINETUuQAtA
