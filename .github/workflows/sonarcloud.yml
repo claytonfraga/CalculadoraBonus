@@ -29,10 +29,9 @@
 name: Build
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ main ]
 jobs:
   build:
     name: Build
@@ -59,6 +58,6 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          GITHUB_TOKEN: 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 # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=claytonfraga_CalculadoraBonus
+        run: mvn verify sonar:sonar -Dsonar.login=93bf4b1b14052e27978847451eb922fe11a0c617

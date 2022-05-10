@@ -74,7 +74,7 @@ public class CalculadoraBonusTest {
 
         funcionario.setDistanciaDoTrablaho(20);
 
-        funcionario.calculadoraSalario(new CalculadoraBonusRuim());
+        funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
         double valorTotalSalarioEsperado = 3636.00;
 
 
