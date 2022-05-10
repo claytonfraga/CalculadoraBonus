@@ -1,0 +1,3 @@
+interfaces.impl.CalculadoraBonusOtimo#calculaBonus(Lmodel/Funcionario;)V
+model.Bonus#instance-init#
+model.Bonus#<init>(Ljava/lang/String;D)V
