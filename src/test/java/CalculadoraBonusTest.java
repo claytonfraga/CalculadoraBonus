@@ -66,7 +66,7 @@ public class CalculadoraBonusTest {
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
 
-    @DisplayName("Testa o salário calculado com bonus de distância do Trabalho")
+    @DisplayName("Testa o salário calculado com bônus de distância do Trabalho")
     @Test
     public void calculaBonusDistanciaDoTrabalhoTest() {
 
