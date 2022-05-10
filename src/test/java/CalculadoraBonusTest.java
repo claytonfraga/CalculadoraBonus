@@ -65,4 +65,19 @@ public class CalculadoraBonusTest {
 
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
+
+    @DisplayName("Testa o salário calculado com bonus de distância do Trabalho")
+    @Test
+    public void calculaBonusDistanciaDoTrabalhoTest() {
+
+        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
+
+        funcionario.setDistanciaDoTrablaho(20);
+
+        funcionario.calculadoraSalario(new CalculadoraBonusRuim());
+        double valorTotalSalarioEsperado = 3636.00;
+
+
+        assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+    }    
 }
