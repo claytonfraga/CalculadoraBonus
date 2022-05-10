@@ -59,9 +59,7 @@ public class CalculadoraBonusTest {
 
         Funcionario funcionario = new Funcionario("Fulano", 3600.00);
 
-
         funcionario.calculadoraSalario(new CalculadoraBonusRuim());
-
         double valorTotalSalarioEsperado = 3600.00;
 
 
