@@ -45,46 +45,6 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>coverage-check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <rule>
-                                    <element>BUNDLE</element>
-                                    <limits>
-                                        <limit>
-                                            <counter>INSTRUCTION</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.80</minimum>
-                                        </limit>
-                                    </limits>
-                                </rule>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
                 <executions>
                     <!-- Prepares the property pointing to the JaCoCo runtime agent -->
@@ -95,7 +55,13 @@
                         </goals>
                         <configuration>
                             <propertyName>surefireArgLine</propertyName>
-                        </configuration>
+                        </configuration>                        
+                        <!--Uncomment this in case you are using the maven surefire plugin-->
+                        <!--<configuration>-->
+                        <!--   &lt;!&ndash; Sets the name of the property containing the settings for JaCoCo-->
+                        <!--  runtime agent. &ndash;&gt;-->
+                        <!--  <propertyName>surefireArgLine</propertyName>-->
+                        <!--</configuration>-->
                     </execution>
                     <!-- Ensures that the code coverage report for unit tests is created
                         after unit tests have been run. -->
@@ -106,8 +72,29 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>coverage-check</id>
+                        <goals>
+                          <goal>check</goal>
+                        </goals>
+                        <configuration>
+                          <rules>
+                            <rule>
+                              <element>BUNDLE</element>
+                              <limits>
+                                <limit>
+                                  <counter>INSTRUCTION</counter>
+                                  <value>COVEREDRATIO</value>
+                                  <minimum>0.80</minimum>
+                                </limit>
+                              </limits>
+                            </rule>
+                          </rules>
+                        </configuration>
+                      </execution>                    
                 </executions>
-            </plugin>
+            </plugin>            
+           
         </plugins>
     </build>
 
