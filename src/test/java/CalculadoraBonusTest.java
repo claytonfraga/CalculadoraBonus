@@ -5,6 +5,7 @@
 
 import interfaces.impl.CalculadoraBonusBom;
 import interfaces.impl.CalculadoraBonusExcelente;
+import interfaces.impl.CalculadoraBonusRuim;
 import interfaces.impl.CalculadoraDistanciaDoTrabalho;
 import model.Funcionario;
 
@@ -47,6 +48,21 @@ public class CalculadoraBonusTest {
         funcionario.calculadoraSalario(new CalculadoraBonusExcelente());
 
         double valorTotalSalarioEsperado = 4320.00;
+
+
+        assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+    }
+
+    @DisplayName("Testa o salário calculado com bonus do tipo Ruim")
+    @Test
+    public void calculaBonusRuimTest() {
+
+        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
+
+
+        funcionario.calculadoraSalario(new CalculadoraBonusRuim());
+
+        double valorTotalSalarioEsperado = 3600.00;
 
 
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
