@@ -80,4 +80,19 @@ public class CalculadoraBonusTest {
 
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }    
+
+    @DisplayName("Testa o salário calculado com bônus de distância do Trabalho > 150")
+    @Test
+    public void calculaBonusDistanciaDoTrabalhoAcima150Test() {
+
+        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
+
+        funcionario.setDistanciaDoTrablaho(220);
+
+        funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
+        double valorTotalSalarioEsperado = 3852.00;
+
+
+        assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+    }        
 }
