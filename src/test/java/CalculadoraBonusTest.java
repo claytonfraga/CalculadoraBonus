@@ -11,6 +11,7 @@ import model.Funcionario;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,15 +20,22 @@ import org.junit.jupiter.api.Test;
  */
 public class CalculadoraBonusTest {
 
+    private Funcionario funcionario;
+
     public CalculadoraBonusTest() {
 
+    }
+
+    @BeforeEach
+    public void instanciaFuncionario() {
+        funcionario = new Funcionario("Fulano", 3600.00);
     }
 
     @DisplayName("Testa o salário calculado com bonus do tipo Bom")
     @Test
     public void calculaBonusBomTest() {
 
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
+        
 
 
         funcionario.calculadoraSalario(new CalculadoraBonusBom());
@@ -42,9 +50,6 @@ public class CalculadoraBonusTest {
     @Test
     public void calculaBonusExcelenteTest() {
 
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
-
-
         funcionario.calculadoraSalario(new CalculadoraBonusExcelente());
 
         double valorTotalSalarioEsperado = 4320.00;
@@ -57,8 +62,6 @@ public class CalculadoraBonusTest {
     @Test
     public void calculaBonusRuimTest() {
 
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
-
         funcionario.calculadoraSalario(new CalculadoraBonusRuim());
         double valorTotalSalarioEsperado = 3600.00;
 
@@ -69,8 +72,6 @@ public class CalculadoraBonusTest {
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho")
     @Test
     public void calculaBonusDistanciaDoTrabalhoTest() {
-
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
 
         funcionario.setDistanciaDoTrablaho(20);
 
@@ -85,8 +86,6 @@ public class CalculadoraBonusTest {
     @Test
     public void calculaBonusDistanciaDoTrabalhoAcima150Test() {
 
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
-
         funcionario.setDistanciaDoTrablaho(220);
 
         funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
@@ -99,8 +98,6 @@ public class CalculadoraBonusTest {
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho = 150")
     @Test
     public void calculaBonusDistanciaDoTrabalho150Test() {
-
-        Funcionario funcionario = new Funcionario("Fulano", 3600.00);
 
         funcionario.setDistanciaDoTrablaho(150);
 
