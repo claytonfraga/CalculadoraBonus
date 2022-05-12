@@ -7,8 +7,10 @@ import interfaces.impl.CalculadoraBonusBom;
 import interfaces.impl.CalculadoraBonusExcelente;
 import interfaces.impl.CalculadoraBonusRuim;
 import interfaces.impl.CalculadoraDistanciaDoTrabalho;
+import model.Bonus;
 import model.Funcionario;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -35,25 +37,20 @@ public class CalculadoraBonusTest {
     @Test
     public void calculaBonusBomTest() {
 
-        
-
-
         funcionario.calculadoraSalario(new CalculadoraBonusBom());
 
         double valorTotalSalarioEsperado = 3780.00;
 
-
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
 
-    @DisplayName("Testa o salário calculado com bonus do tipo Excelente")
+    @DisplayName("Testa o salário calculado com bonus do Excelente")
     @Test
     public void calculaBonusExcelenteTest() {
 
         funcionario.calculadoraSalario(new CalculadoraBonusExcelente());
 
         double valorTotalSalarioEsperado = 4320.00;
-
 
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
@@ -63,10 +60,17 @@ public class CalculadoraBonusTest {
     public void calculaBonusRuimTest() {
 
         funcionario.calculadoraSalario(new CalculadoraBonusRuim());
+
         double valorTotalSalarioEsperado = 3600.00;
+        String tipoBonusEsperado = "Ruim";
 
+        double valorTotalSalarioObtido = funcionario.getSalario();
+        Bonus bonusRecebido = funcionario.getBonus();
 
-        assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+        assertAll(
+                () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
+                () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())
+        );
     }
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho")
@@ -78,9 +82,8 @@ public class CalculadoraBonusTest {
         funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
         double valorTotalSalarioEsperado = 3636.00;
 
-
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
-    }    
+    }
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho > 150")
     @Test
@@ -91,9 +94,8 @@ public class CalculadoraBonusTest {
         funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
         double valorTotalSalarioEsperado = 3852.00;
 
-
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
-    }        
+    }
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho = 150")
     @Test
@@ -104,7 +106,6 @@ public class CalculadoraBonusTest {
         funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
         double valorTotalSalarioEsperado = 3780.00;
 
-
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
-    }        
+    }
 }
