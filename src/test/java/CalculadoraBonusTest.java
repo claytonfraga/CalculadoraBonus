@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author clayton
  */
-public class CalculadoraBonusTest {
+class CalculadoraBonusTest {
 
     private Funcionario funcionario;
 
