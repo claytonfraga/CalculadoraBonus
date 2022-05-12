@@ -40,7 +40,15 @@ class CalculadoraBonusTest {
         funcionario.calculadoraSalario(new CalculadoraBonusBom());
 
         double valorTotalSalarioEsperado = 3780.00;
+        String tipoBonusEsperado = "Bom";
 
+        double valorTotalSalarioObtido = funcionario.getSalario();
+        Bonus bonusRecebido = funcionario.getBonus();        
+
+        assertAll(
+            () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
+            () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())        
+        );
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
 
@@ -52,7 +60,15 @@ class CalculadoraBonusTest {
 
         double valorTotalSalarioEsperado = 4320.00;
 
-        assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+        String tipoBonusEsperado = "Excelente";
+
+        double valorTotalSalarioObtido = funcionario.getSalario();
+        Bonus bonusRecebido = funcionario.getBonus();        
+
+        assertAll(
+            () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
+            () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())
+    );        
     }
 
     @DisplayName("Testa o salário calculado com bonus do tipo Ruim")
