@@ -137,6 +137,8 @@ class CalculadoraBonusTest {
 
         assertAll(
                 () -> assertThat(funcionarioString, containsString("Fulano")),
+                () -> assertThat(funcionarioString, containsString("3600")),                
+                () -> assertThat(funcionarioString, containsString("3780")),                                
                 () -> assertThat(funcionarioString, containsString("150")));
 
     }
