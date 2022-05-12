@@ -14,12 +14,6 @@ public class Funcionario {
         this.salarioBase = salarioBase;
     }
 
-    public Funcionario(String nome, double salarioBase, double distanciaDoTrablaho) {
-        this.nome = nome;
-        this.salarioBase = salarioBase;
-        this.distanciaDoTrablaho = distanciaDoTrablaho;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -60,11 +54,11 @@ public class Funcionario {
     @Override
     public String toString() {
         return "\n\tFuncionario{" +
-                "nome='" + nome + '\'' +
+                "nome='" + getNome() + '\'' +
                 ", salarioBase=" + salarioBase +
-                ", salario=" + salario +
-                ", distanciaDoTrablaho=" + distanciaDoTrablaho +
-                ", bonus=" + bonus +
+                ", salario=" + getSalario() +
+                ", distanciaDoTrablaho=" + getDistanciaDoTrablaho() +
+                ", bonus=" + getBonus() +
                 "}";
     }
 }

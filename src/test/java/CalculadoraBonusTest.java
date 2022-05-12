@@ -10,8 +10,11 @@ import interfaces.impl.CalculadoraDistanciaDoTrabalho;
 import model.Bonus;
 import model.Funcionario;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -43,12 +46,11 @@ class CalculadoraBonusTest {
         String tipoBonusEsperado = "Bom";
 
         double valorTotalSalarioObtido = funcionario.getSalario();
-        Bonus bonusRecebido = funcionario.getBonus();        
+        Bonus bonusRecebido = funcionario.getBonus();
 
         assertAll(
-            () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
-            () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())        
-        );
+                () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
+                () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo()));
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
 
@@ -63,12 +65,11 @@ class CalculadoraBonusTest {
         String tipoBonusEsperado = "Excelente";
 
         double valorTotalSalarioObtido = funcionario.getSalario();
-        Bonus bonusRecebido = funcionario.getBonus();        
+        Bonus bonusRecebido = funcionario.getBonus();
 
         assertAll(
-            () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
-            () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())
-    );        
+                () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
+                () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo()));
     }
 
     @DisplayName("Testa o salário calculado com bonus do tipo Ruim")
@@ -85,8 +86,7 @@ class CalculadoraBonusTest {
 
         assertAll(
                 () -> assertEquals(valorTotalSalarioEsperado, valorTotalSalarioObtido, 0.001),
-                () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo())
-        );
+                () -> assertEquals(tipoBonusEsperado, bonusRecebido.getTipo()));
     }
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho")
@@ -123,5 +123,21 @@ class CalculadoraBonusTest {
         double valorTotalSalarioEsperado = 3780.00;
 
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
+    }
+
+    @DisplayName("Avaliar o funcionamento do métdo to String")
+    @Test
+    void calculaToStringTest() {
+
+        funcionario.setDistanciaDoTrablaho(150);
+
+        funcionario.calculadoraSalario(new CalculadoraDistanciaDoTrabalho());
+
+        String funcionarioString = funcionario.toString();
+
+        assertAll(
+                () -> assertThat(funcionarioString, containsString("Fulano")),
+                () -> assertThat(funcionarioString, containsString("150")));
+
     }
 }

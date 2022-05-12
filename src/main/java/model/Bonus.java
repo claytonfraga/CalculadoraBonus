@@ -20,8 +20,8 @@ public class Bonus {
     @Override
     public String toString() {
         return "Bonus{" +
-                "tipo='" + tipo + '\'' +
-                ", valor=" + valor +
+                "tipo='" + getTipo() + '\'' +
+                ", valor=" + getValor() +
                 '}';
     }
 }
