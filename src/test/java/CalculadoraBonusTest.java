@@ -29,13 +29,13 @@ public class CalculadoraBonusTest {
     }
 
     @BeforeEach
-    public void instanciaFuncionario() {
+    void instanciaFuncionario() {
         funcionario = new Funcionario("Fulano", 3600.00);
     }
 
     @DisplayName("Testa o salário calculado com bonus do tipo Bom")
     @Test
-    public void calculaBonusBomTest() {
+    void calculaBonusBomTest() {
 
         funcionario.calculadoraSalario(new CalculadoraBonusBom());
 
@@ -46,7 +46,7 @@ public class CalculadoraBonusTest {
 
     @DisplayName("Testa o salário calculado com bonus do Excelente")
     @Test
-    public void calculaBonusExcelenteTest() {
+    void calculaBonusExcelenteTest() {
 
         funcionario.calculadoraSalario(new CalculadoraBonusExcelente());
 
@@ -57,7 +57,7 @@ public class CalculadoraBonusTest {
 
     @DisplayName("Testa o salário calculado com bonus do tipo Ruim")
     @Test
-    public void calculaBonusRuimTest() {
+    void calculaBonusRuimTest() {
 
         funcionario.calculadoraSalario(new CalculadoraBonusRuim());
 
@@ -75,7 +75,7 @@ public class CalculadoraBonusTest {
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho")
     @Test
-    public void calculaBonusDistanciaDoTrabalhoTest() {
+    void calculaBonusDistanciaDoTrabalhoTest() {
 
         funcionario.setDistanciaDoTrablaho(20);
 
@@ -87,7 +87,7 @@ public class CalculadoraBonusTest {
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho > 150")
     @Test
-    public void calculaBonusDistanciaDoTrabalhoAcima150Test() {
+    void calculaBonusDistanciaDoTrabalhoAcima150Test() {
 
         funcionario.setDistanciaDoTrablaho(220);
 
@@ -99,7 +99,7 @@ public class CalculadoraBonusTest {
 
     @DisplayName("Testa o salário calculado com bônus de distância do Trabalho = 150")
     @Test
-    public void calculaBonusDistanciaDoTrabalho150Test() {
+    void calculaBonusDistanciaDoTrabalho150Test() {
 
         funcionario.setDistanciaDoTrablaho(150);
 
