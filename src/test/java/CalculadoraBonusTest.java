@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
-
 import interfaces.impl.CalculadoraBonusBom;
 import interfaces.impl.CalculadoraBonusExcelente;
 import interfaces.impl.CalculadoraBonusRuim;
@@ -125,7 +120,7 @@ class CalculadoraBonusTest {
         assertEquals(valorTotalSalarioEsperado, funcionario.getSalario(), 0.001);
     }
 
-    @DisplayName("Avaliar o funcionamento do métdo to String")
+    @DisplayName("Avaliar o funcionamento do método to String")
     @Test
     void calculaToStringTest() {
 
